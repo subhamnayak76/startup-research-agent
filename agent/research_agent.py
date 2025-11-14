@@ -60,7 +60,7 @@ structured_llm = llm.with_structured_output(CompanyList)
 
 def enhance_query_node(state:State):
     """Refine the user query """
-    user_input = state['input']
+    user_input = state["input"]
     refine_prompt = f"""
         Given this user query about startups: "{user_input}"
         
@@ -147,7 +147,7 @@ graph_builder.add_edge("report",END)
 app = graph_builder.compile()
 
 def research_agent(query : str):
-    input_data = {"result":query}
+    input_data = {"input":query}
     result = app.invoke(input_data)
 
     return {
